@@ -1,0 +1,120 @@
+#clinica {
+  min-height: 150vh;
+  padding: 22vh 6vw;
+  overflow: hidden;
+}
+
+#clinica h2 {
+  font-size: clamp(34px, 6.4vw, 100px);
+  font-weight: 300;
+  letter-spacing: -0.04em;
+  line-height: 1.02;
+  max-width: 11em;
+  position: relative;
+  z-index: 3;
+}
+
+#clinica h2 b {
+  font-weight: 800;
+}
+
+#clinica h2 em {
+  color: var(--blue);
+}
+
+.fl {
+  position: absolute;
+  border-radius: 28px;
+  box-shadow: var(--sh);
+}
+
+.f1 {
+  width: 26vw;
+  height: 34vw;
+  right: 8vw;
+  top: 12vh;
+  border-radius: 999px 999px 28px 28px;
+}
+
+.f2 {
+  width: 22vw;
+  height: 16vw;
+  left: 10vw;
+  top: 80vh;
+}
+
+.f3 {
+  width: 18vw;
+  height: 24vw;
+  right: 26vw;
+  top: 96vh;
+}
+
+.note {
+  position: absolute;
+  z-index: 4;
+  left: 6vw;
+  top: calc(100vh + 18vh);
+  max-width: 340px;
+  padding: 22px 26px;
+  border-radius: 24px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--mute);
+}
+
+.note b {
+  display: block;
+  color: var(--ink);
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+
+.chip {
+  position: absolute;
+  z-index: 4;
+  padding: 12px 20px;
+  border-radius: 99px;
+  font-size: 13px;
+  font-weight: 600;
+  animation: bob 6s ease-in-out infinite;
+}
+
+.chip--a {
+  right: 30vw;
+  top: 62vh;
+}
+
+.chip--b {
+  left: 30vw;
+  top: 150vh;
+  animation-delay: -3s;
+}
+
+@keyframes bob {
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+@media (max-width: 820px) {
+  .f1 {
+    width: 44vw;
+    height: 56vw;
+  }
+
+  .f2 {
+    width: 36vw;
+    height: 26vw;
+  }
+
+  .f3 {
+    width: 30vw;
+    height: 40vw;
+    right: 6vw;
+  }
+
+  .note {
+    top: calc(100vh + 30vh);
+  }
+}

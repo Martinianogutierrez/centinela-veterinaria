@@ -1,0 +1,164 @@
+#servicios {
+  padding: 14vh 0 16vh;
+  background: var(--bg2);
+  overflow: hidden;
+}
+
+#servicios .hd {
+  padding: 0 6vw 5vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.hd h2 {
+  font-size: clamp(40px, 7vw, 110px);
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  line-height: 0.95;
+}
+
+.hd h2 span {
+  font-size: 0.7em;
+  color: var(--blue);
+  display: block;
+}
+
+.hd p {
+  color: var(--mute);
+  font-size: 13px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.track {
+  display: flex;
+  gap: 22px;
+  overflow-x: auto;
+  padding: 0 6vw 20px;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+  cursor: grab;
+}
+
+.track::-webkit-scrollbar {
+  display: none;
+}
+
+.card {
+  flex: none;
+  width: min(78vw, 380px);
+  height: min(66vh, 560px);
+  border-radius: 34px;
+  scroll-snap-align: center;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  border: 0;
+  color: #fff;
+  text-align: left;
+  font-family: inherit;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.6s;
+  box-shadow: var(--sh);
+}
+
+.card .ph {
+  position: absolute;
+  inset: 0;
+  transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card:hover .ph {
+  transform: scale(1.1);
+}
+
+.card h3 {
+  position: absolute;
+  left: 26px;
+  bottom: 26px;
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  z-index: 2;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.4);
+  transition: opacity 0.4s;
+}
+
+.card .plus {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  transition: transform 0.5s;
+}
+
+.plus::before,
+.plus::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 1.5px;
+  background: #fff;
+}
+
+.plus::after {
+  transform: rotate(90deg);
+}
+
+.card:hover .plus,
+.card.open .plus {
+  transform: rotate(135deg);
+}
+
+.lay {
+  position: absolute;
+  inset: auto 14px 14px 14px;
+  padding: 24px;
+  border-radius: 26px;
+  z-index: 2;
+  transform: translateY(110%);
+  opacity: 0;
+  transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.lay h4 {
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.lay p {
+  font-size: 14px;
+  line-height: 1.55;
+  opacity: 0.92;
+}
+
+.lay u {
+  display: block;
+  margin-top: 14px;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.card:hover .lay,
+.card.open .lay {
+  transform: none;
+  opacity: 1;
+}
+
+.card:hover h3,
+.card.open h3 {
+  opacity: 0;
+}
