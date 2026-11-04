@@ -13,10 +13,10 @@ export default function Especialidades({ carousel }: EspecialidadesProps) {
   const [open, setOpen] = useState<Record<number, boolean>>({});
 
   return (
-    <section id="especialidades">
+    <section id="especializaciones">
       <div className="hd">
         <h2 className="rv">
-          <span className="script">nuestras</span>Especialidades
+          <span className="script">nuestras</span>Especializaciones
         </h2>
         <p>Arrastrá →</p>
       </div>

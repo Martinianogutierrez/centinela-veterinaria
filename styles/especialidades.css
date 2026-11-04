@@ -1,10 +1,10 @@
-#especialidades {
+#especializaciones {
   padding: 14vh 0 16vh;
   background: var(--bg2);
   overflow: hidden;
 }
 
-#especialidades .hd {
+#especializaciones .hd {
   padding: 0 6vw 5vh;
   display: flex;
   justify-content: space-between;
