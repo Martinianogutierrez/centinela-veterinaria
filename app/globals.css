@@ -10,6 +10,10 @@
 
 /* Keep Tailwind available; legacy CSS owns visuals.
    Soften preflight clashes with SPA controls. */
+html {
+  line-height: normal;
+}
+
 button {
   background: none;
   color: inherit;

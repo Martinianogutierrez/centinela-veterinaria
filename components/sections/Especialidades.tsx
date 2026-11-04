@@ -10,7 +10,7 @@ type EspecialidadesProps = {
 };
 
 export default function Especialidades({ carousel }: EspecialidadesProps) {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [open, setOpen] = useState<Record<number, boolean>>({});
 
   return (
     <section id="especialidades">
@@ -22,15 +22,18 @@ export default function Especialidades({ carousel }: EspecialidadesProps) {
       </div>
       <div className="track" id="track">
         {SERV.map((service, index) => {
-          const open = openIndex === index;
+          const isOpen = !!open[index];
           return (
             <button
               key={service.title}
-              className={`card${open ? " open" : ""}`}
+              className={`card${isOpen ? " open" : ""}`}
               type="button"
               onClick={() => {
                 if (carousel.isDragging()) return;
-                setOpenIndex((prev) => (prev === index ? null : index));
+                setOpen((prev) => ({
+                  ...prev,
+                  [index]: !prev[index],
+                }));
               }}
             >
               <PhotoSlot imageKey={`s${index}`} label={service.title} />
