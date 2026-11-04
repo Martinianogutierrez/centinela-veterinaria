@@ -27,13 +27,22 @@ export const viewport: Viewport = {
   viewportFit: "cover",
 };
 
+const themeInitScript = `(function(){try{var dark=window.matchMedia("(prefers-color-scheme: dark)").matches;document.documentElement.dataset.theme=dark?"dark":"light";}catch(e){}})();`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className={`${manrope.variable} ${pinyon.variable}`}>
+    <html
+      lang="es"
+      className={`${manrope.variable} ${pinyon.variable}`}
+      suppressHydrationWarning
+    >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
       <body className={manrope.className}>{children}</body>
     </html>
   );

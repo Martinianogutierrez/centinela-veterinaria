@@ -2,11 +2,17 @@
 
 import { useEffect } from "react";
 
+function systemTheme(): "dark" | "light" {
+  return matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+}
+
 export function useTheme() {
   useEffect(() => {
     const root = document.documentElement;
-    const prefersDark = matchMedia("(prefers-color-scheme: dark)").matches;
-    root.dataset.theme = prefersDark ? "dark" : "light";
+
+    if (!root.dataset.theme) {
+      root.dataset.theme = systemTheme();
+    }
 
     const toggle = document.querySelector<HTMLElement>("#tg");
     if (!toggle) return;
