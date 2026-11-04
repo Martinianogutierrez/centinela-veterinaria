@@ -38,13 +38,13 @@ html {
 body {
   background: var(--bg);
   color: var(--ink);
-  font-family: Manrope, system-ui, sans-serif;
+  font-family: var(--font-manrope), Manrope, system-ui, sans-serif;
   overflow-x: hidden;
   transition: background 0.5s, color 0.5s;
 }
 
 .script {
-  font-family: "Pinyon Script", cursive;
+  font-family: var(--font-pinyon), "Pinyon Script", cursive;
   font-weight: 400;
 }
 
@@ -109,7 +109,7 @@ body {
   align-items: center;
   justify-content: center;
   color: var(--ink);
-  font: 600 13px Manrope;
+  font: 600 13px var(--font-manrope), Manrope, system-ui, sans-serif;
   letter-spacing: 0.03em;
   cursor: pointer;
   border: 1px solid var(--gb);
