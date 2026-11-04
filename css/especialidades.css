@@ -1,10 +1,10 @@
-#servicios {
+#especialidades {
   padding: 14vh 0 16vh;
   background: var(--bg2);
   overflow: hidden;
 }
 
-#servicios .hd {
+#especialidades .hd {
   padding: 0 6vw 5vh;
   display: flex;
   justify-content: space-between;
