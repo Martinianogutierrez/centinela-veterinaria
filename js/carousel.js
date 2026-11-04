@@ -17,15 +17,25 @@ const Carousel = (() => {
     return card.offsetWidth + gap;
   }
 
-  function syncNav(track, prevBtn, nextBtn) {
-    if (!prevBtn || !nextBtn) return;
-    prevBtn.disabled = track.scrollLeft <= 1;
-    nextBtn.disabled =
-      track.scrollLeft + track.clientWidth >= track.scrollWidth - 1;
+  function maxScroll(track) {
+    return Math.max(0, track.scrollWidth - track.clientWidth);
   }
 
-  function step(track, direction) {
-    track.scrollBy({ left: direction * stepSize(track), behavior: "smooth" });
+  function syncNav(track, prevBtn, nextBtn, scrollLeft = track.scrollLeft) {
+    if (!prevBtn || !nextBtn) return;
+    const max = maxScroll(track);
+    prevBtn.disabled = scrollLeft <= 1;
+    nextBtn.disabled = scrollLeft >= max - 1;
+  }
+
+  function step(track, prevBtn, nextBtn, direction) {
+    const max = maxScroll(track);
+    const target = Math.min(
+      max,
+      Math.max(0, track.scrollLeft + direction * stepSize(track)),
+    );
+    syncNav(track, prevBtn, nextBtn, target);
+    track.scrollTo({ left: target, behavior: "smooth" });
   }
 
   function initCarousel() {
@@ -36,14 +46,12 @@ const Carousel = (() => {
     const nextBtn = $("#track-next");
 
     if (prevBtn && nextBtn) {
-      prevBtn.onclick = () => step(track, -1);
-      nextBtn.onclick = () => step(track, 1);
-      track.addEventListener(
-        "scroll",
-        () => syncNav(track, prevBtn, nextBtn),
-        { passive: true },
-      );
-      syncNav(track, prevBtn, nextBtn);
+      prevBtn.onclick = () => step(track, prevBtn, nextBtn, -1);
+      nextBtn.onclick = () => step(track, prevBtn, nextBtn, 1);
+      const resync = () => syncNav(track, prevBtn, nextBtn);
+      track.addEventListener("scroll", resync, { passive: true });
+      window.addEventListener("resize", resync);
+      resync();
     }
 
     track.onpointerdown = (event) => {
