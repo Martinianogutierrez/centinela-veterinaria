@@ -8,7 +8,7 @@ export default function Clinica() {
     >
       <h2 className="rv relative z-[3] max-w-[11em] text-[clamp(34px,6.4vw,100px)] leading-[1.02] font-light tracking-[-0.04em]">
         Un lugar <b className="font-extrabold">pensado</b> para que{" "}
-        <em className="text-blue not-italic">ellos</em> se sientan{" "}
+        <em className="text-blue">ellos</em> se sientan{" "}
         <b className="font-extrabold">bien.</b>
       </h2>
       <PhotoSlot

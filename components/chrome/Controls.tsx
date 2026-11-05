@@ -19,7 +19,7 @@ export default function Controls() {
         <i />
       </button>
       <button
-        className={`pill glass group ${pill} border-transparent bg-ink px-5 text-bg backdrop-blur-[14px] max-[820px]:px-3.5`}
+        className={`pill glass group ${pill} px-5 max-[820px]:px-3.5`}
         id="book"
         type="button"
         onClick={openBooking}

@@ -43,7 +43,7 @@ export default function Contacto() {
           </div>
         </dl>
         <button
-          className="pill col-span-full flex h-14 cursor-pointer items-center justify-center rounded-full border border-gb bg-ink text-[15px] font-semibold tracking-[0.03em] text-bg transition-[transform,background] duration-300 hover:-translate-y-0.5 hover:scale-[1.03] max-[820px]:col-span-1"
+          className="pill col-span-full flex h-14 cursor-pointer items-center justify-center rounded-full border-transparent bg-ink text-[15px] font-semibold tracking-[0.03em] text-bg transition-[transform,background] duration-300 hover:-translate-y-0.5 hover:scale-[1.03]"
           id="book-contact"
           type="button"
           onClick={openBooking}

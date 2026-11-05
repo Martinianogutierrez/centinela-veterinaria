@@ -37,8 +37,8 @@ export default function Equipo() {
         {TEAM.map((member, index) => (
           <div
             key={`item-${member.name}-${index}`}
-            className={`it cursor-pointer rounded-[22px] p-[18px] transition-colors duration-[400ms] hover:bg-white/18 ${
-              index === active ? "on bg-white/35" : ""
+            className={`it cursor-pointer rounded-[22px] p-[18px] transition-colors duration-[400ms] ${
+              index === active ? "on bg-white/35" : "hover:bg-white/18"
             }`}
             onClick={() => setActive(index)}
             onKeyDown={(event) => {

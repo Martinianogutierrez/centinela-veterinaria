@@ -5,7 +5,7 @@ export default function Hero() {
   return (
     <section
       id="inicio"
-      className="relative grid h-screen h-svh place-items-center overflow-hidden text-center text-white"
+      className="relative grid place-items-center overflow-hidden text-center text-white"
     >
       {IMG.video ? (
         <video

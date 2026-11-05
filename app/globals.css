@@ -66,18 +66,33 @@ body {
   transition: background 0.5s, color 0.5s;
 }
 
-button {
-  background: none;
-  color: inherit;
-  font: inherit;
+@layer base {
+  button {
+    background: none;
+    color: inherit;
+    font: inherit;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  section {
+    position: relative;
+  }
 }
 
-a {
-  color: inherit;
+/* Unlayered id rules beat unlayered .glass */
+#inicio {
+  height: 100vh;
+  height: 100svh;
 }
 
-section {
-  position: relative;
+#book {
+  background: var(--ink);
+  color: var(--bg);
+  border-color: transparent;
+  backdrop-filter: blur(14px);
 }
 
 /* Shared residual: glass, reveal, script hook for font utility parity */
