@@ -15,11 +15,7 @@ export default function PhotoSlot({
 }: PhotoSlotProps) {
   const url = IMG[imageKey];
   const empty = !url;
-  const classes = [
-    "ph relative overflow-hidden bg-[#a9c6dc] bg-center bg-cover bg-no-repeat",
-    empty ? "empty" : "",
-    className,
-  ]
+  const classes = ["ph", empty ? "empty" : "", className]
     .filter(Boolean)
     .join(" ");
 
@@ -29,7 +25,16 @@ export default function PhotoSlot({
       data-i={imageKey}
       data-l={label}
       {...(parallax !== undefined ? { "data-p": parallax } : {})}
-      style={url ? { backgroundImage: `url(${url})` } : undefined}
+      style={
+        url
+          ? {
+              backgroundImage: `url(${url})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+            }
+          : undefined
+      }
     />
   );
 }
