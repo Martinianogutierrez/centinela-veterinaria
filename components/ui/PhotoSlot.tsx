@@ -15,7 +15,11 @@ export default function PhotoSlot({
 }: PhotoSlotProps) {
   const url = IMG[imageKey];
   const empty = !url;
-  const classes = ["ph", empty ? "empty" : "", className]
+  const classes = [
+    "ph relative overflow-hidden bg-sky bg-center bg-cover bg-no-repeat",
+    empty ? "empty" : "",
+    className,
+  ]
     .filter(Boolean)
     .join(" ");
 

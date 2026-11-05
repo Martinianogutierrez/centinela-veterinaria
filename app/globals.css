@@ -1,17 +1,69 @@
 @import "tailwindcss";
 
-@import "../styles/base.css";
-@import "../styles/layout.css";
-@import "../styles/hero.css";
-@import "../styles/clinica.css";
-@import "../styles/especialidades.css";
-@import "../styles/equipo.css";
-@import "../styles/contacto.css";
+/* Design tokens — light / dark via data-theme (useTheme + boot script) */
+:root {
+  --bg: #f7f5ef;
+  --bg2: #e9eff3;
+  --ink: #0d2f52;
+  --mute: #4d6882;
+  --blue: #1f5f99;
+  --sky: #a9c6dc;
+  --glass: rgba(255, 255, 255, 0.38);
+  --gb: rgba(255, 255, 255, 0.7);
+  --sh: 0 10px 40px rgba(13, 47, 82, 0.18);
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
 
-/* Keep Tailwind available; legacy CSS owns visuals.
-   Soften preflight clashes with SPA controls. */
+:root[data-theme="dark"] {
+  --bg: #06121f;
+  --bg2: #0a1d31;
+  --ink: #eaf2f8;
+  --mute: #8fabc2;
+  --blue: #5da2dc;
+  --sky: #2d5f8c;
+  --glass: rgba(16, 45, 76, 0.42);
+  --gb: rgba(150, 200, 240, 0.22);
+  --sh: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg2: var(--bg2);
+  --color-ink: var(--ink);
+  --color-mute: var(--mute);
+  --color-blue: var(--blue);
+  --color-sky: var(--sky);
+  --color-glass: var(--glass);
+  --color-gb: var(--gb);
+  --shadow-sh: var(--sh);
+  --font-sans: var(--font-manrope), Manrope, system-ui, sans-serif;
+  --font-script: var(--font-pinyon), "Pinyon Script", cursive;
+  --animate-spin-slow: spin 14s linear infinite;
+  --animate-mq: mq 30s linear infinite;
+  --animate-bob: bob 6s ease-in-out infinite;
+  --animate-up: up 1.4s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  --animate-dot: dot 1.8s infinite;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
 html {
+  scroll-behavior: smooth;
+  scroll-padding-top: env(safe-area-inset-top, 0px);
   line-height: normal;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-manrope), Manrope, system-ui, sans-serif;
+  overflow-x: hidden;
+  transition: background 0.5s, color 0.5s;
 }
 
 button {
@@ -22,4 +74,225 @@ button {
 
 a {
   color: inherit;
+}
+
+section {
+  position: relative;
+}
+
+/* Shared residual: glass, reveal, script hook for font utility parity */
+.glass {
+  background: var(--glass);
+  backdrop-filter: blur(22px) saturate(1.8);
+  -webkit-backdrop-filter: blur(22px) saturate(1.8);
+  border: 1px solid var(--gb);
+  box-shadow: var(--sh), inset 0 1px 0 rgba(255, 255, 255, 0.45);
+}
+
+.script {
+  font-family: var(--font-pinyon), "Pinyon Script", cursive;
+  font-weight: 400;
+}
+
+.rv {
+  opacity: 0;
+  transform: translateY(60px);
+  filter: blur(8px);
+  transition: all 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.rv.in {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+/* Photo empty placeholder (pseudos + gradients) */
+.ph.empty {
+  background:
+    radial-gradient(120% 90% at 20% 10%, #cfe0ec, transparent 60%),
+    radial-gradient(90% 90% at 90% 90%, #2a6aa6, transparent 60%),
+    #12406e;
+}
+
+:root[data-theme="dark"] .ph.empty {
+  background:
+    radial-gradient(120% 90% at 20% 10%, #1f4f7e, transparent 60%),
+    radial-gradient(90% 90% at 90% 90%, #0d3a66, transparent 60%),
+    #06182b;
+}
+
+.ph.empty::after {
+  content: attr(data-l);
+  position: absolute;
+  left: 14px;
+  bottom: 12px;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.ph.empty::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: conic-gradient(from 0deg, transparent, rgba(255, 255, 255, 0.12), transparent 30%);
+  animation: spin 14s linear infinite;
+}
+
+/* Theme toggle sun / moon */
+#tg i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ink);
+  box-shadow:
+    0 -7px 0 -2.5px var(--ink),
+    0 7px 0 -2.5px var(--ink),
+    7px 0 0 -2.5px var(--ink),
+    -7px 0 0 -2.5px var(--ink),
+    5px 5px 0 -2.5px var(--ink),
+    -5px 5px 0 -2.5px var(--ink),
+    5px -5px 0 -2.5px var(--ink),
+    -5px -5px 0 -2.5px var(--ink);
+  transform: translate(-50%, -50%);
+  transition: 0.5s;
+}
+
+:root[data-theme="dark"] #tg i {
+  width: 16px;
+  height: 16px;
+  background: transparent;
+  box-shadow: inset -6px -3px 0 0 var(--ink);
+  transform: translate(-50%, -50%) rotate(-20deg);
+}
+
+/* Nav spy bubble dark + active link */
+nav a.on {
+  opacity: 1;
+}
+
+:root[data-theme="dark"] #bub {
+  background: rgba(120, 180, 235, 0.28);
+}
+
+/* Hero overlay + scroll hint pseudo */
+#inicio::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(6, 24, 43, 0.35),
+    rgba(6, 24, 43, 0.1) 40%,
+    rgba(6, 24, 43, 0.6)
+  );
+}
+
+.hint::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 8px;
+  width: 3px;
+  height: 8px;
+  margin-left: -1.5px;
+  background: #fff;
+  border-radius: 3px;
+  animation: dot 1.8s infinite;
+}
+
+/* Card overlay keeps glass blur/border but fixed wash (beats .glass bg) */
+.lay {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Card plus glyph */
+.plus::before,
+.plus::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 1.5px;
+  background: #fff;
+}
+
+.plus::after {
+  transform: rotate(90deg);
+}
+
+/* Equipo accordion expand + plus */
+.it h3::after {
+  content: "+";
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 0.8;
+  transition: transform 0.5s;
+}
+
+.it.on h3::after {
+  transform: rotate(45deg);
+}
+
+.it > div {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.it.on > div {
+  grid-template-rows: 1fr;
+}
+
+.it p {
+  overflow: hidden;
+  transition: margin 0.6s;
+}
+
+.it.on p {
+  margin-top: 12px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes mq {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes bob {
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+@keyframes up {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+    filter: blur(10px);
+  }
+}
+
+@keyframes dot {
+  60% {
+    transform: translateY(16px);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition-duration: 0.01s !important;
+  }
 }
