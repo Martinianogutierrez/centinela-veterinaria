@@ -1,5 +1,7 @@
 export default function Footer() {
   return (
-    <footer>© 2026 Centinela Centro Veterinario · Prototipo</footer>
+    <footer className="site-footer">
+      © 2026 Centinela Centro Veterinario · Prototipo
+    </footer>
   );
 }

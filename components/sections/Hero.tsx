@@ -3,7 +3,7 @@ import PhotoSlot from "@/components/ui/PhotoSlot";
 
 export default function Hero() {
   return (
-    <section id="inicio">
+    <section id="inicio" className="hero">
       {IMG.video ? (
         <video
           src={IMG.video}
@@ -11,12 +11,13 @@ export default function Hero() {
           muted
           loop
           playsInline
+          className="hero-video"
         />
       ) : null}
       <PhotoSlot
         imageKey="hero"
         label="Hero · video o foto 16:9"
-        className={IMG.hero ? "" : "empty"}
+        className="hero-ph"
         parallax="-.12"
       />
       <div className="hero-t">

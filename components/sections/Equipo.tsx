@@ -8,7 +8,7 @@ export default function Equipo() {
   const [active, setActive] = useState(0);
 
   return (
-    <section id="equipo">
+    <section id="equipo" className="equipo">
       <div className="stage" id="stage" data-p=".04">
         {TEAM.map((member, index) => (
           <PhotoSlot

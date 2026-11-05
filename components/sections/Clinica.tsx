@@ -2,7 +2,7 @@ import PhotoSlot from "@/components/ui/PhotoSlot";
 
 export default function Clinica() {
   return (
-    <section id="clinica">
+    <section id="clinica" className="clinica">
       <h2 className="rv">
         Un lugar <b>pensado</b> para que <em>ellos</em> se sientan <b>bien.</b>
       </h2>

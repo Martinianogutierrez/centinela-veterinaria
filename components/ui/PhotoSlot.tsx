@@ -25,7 +25,16 @@ export default function PhotoSlot({
       data-i={imageKey}
       data-l={label}
       {...(parallax !== undefined ? { "data-p": parallax } : {})}
-      style={url ? { backgroundImage: `url(${url})` } : undefined}
+      style={
+        url
+          ? {
+              backgroundImage: `url(${url})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+            }
+          : undefined
+      }
     />
   );
 }

@@ -15,7 +15,12 @@ export default function Controls() {
       >
         <i />
       </button>
-      <button className="pill glass" id="book" type="button" onClick={openBooking}>
+      <button
+        className="pill glass"
+        id="book"
+        type="button"
+        onClick={openBooking}
+      >
         Reservar turno&nbsp;<span>→</span>
       </button>
     </div>

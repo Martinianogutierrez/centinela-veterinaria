@@ -7,10 +7,11 @@ export default function Contacto() {
   const openBooking = () => alert(BOOKING_ALERT);
 
   return (
-    <section id="contacto">
+    <section id="contacto" className="contacto">
       <PhotoSlot
         imageKey="visit"
         label="Fachada de la clínica"
+        className="contacto-ph"
         parallax="-.1"
       />
       <div className="cc glass rv">
