@@ -38,7 +38,7 @@ export default function Contacto() {
           type="button"
           onClick={openBooking}
         >
-          Reservar turno →
+          Reservar turno
         </button>
       </div>
     </section>

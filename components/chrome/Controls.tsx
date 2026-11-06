@@ -21,7 +21,7 @@ export default function Controls() {
         type="button"
         onClick={openBooking}
       >
-        Reservar turno&nbsp;<span>→</span>
+        Reservar turno
       </button>
     </div>
   );
