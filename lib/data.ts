@@ -1,19 +1,19 @@
 export const IMG: Record<string, string> = {
   hero: "/assets/veterinarian-check-ing-puppy-s-health-2.jpg",
   video: "",
-  c1: "",
-  c2: "",
-  c3: "",
+  c1: "/assets/dog_2.jpg",
+  c2: "/assets/dog_1.png",
+  c3: "/assets/cat_ecography.jpg",
   visit: "",
-  s0: "/assets/clinica.jpg",
+  s0: "/assets/consultorio.jpg",
   s1: "/assets/cirugia.jpeg",
-  s2: "",
+  s2: "/assets/consultorio_ecografia.jpg",
   s3: "",
   s4: "",
   s5: "",
   t0: "",
   t1: "/assets/maria_clausse.jpg",
-  t2: "",
+  t2: "/assets/mili_corte.png",
   t3: "",
 };
 
@@ -69,8 +69,8 @@ export const TEAM: readonly TeamMember[] = [
     bio: "Biografía breve: especialidad, intereses y enfoque con los pacientes y sus familias.",
   },
   {
-    name: "Dra. Nombre Apellido",
-    role: "Medicina felina",
+    name: "Vet. Milagros Corte",
+    role: "Oftalmóloga",
     bio: "Biografía breve: trayectoria en gatos y cuidado de pacientes sensibles.",
   },
   {
