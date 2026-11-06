@@ -39,7 +39,7 @@
   --color-gb: var(--gb);
   --shadow-sh: var(--sh);
   --font-sans: var(--font-manrope), Manrope, system-ui, sans-serif;
-  --font-script: var(--font-pinyon), "Pinyon Script", cursive;
+  --font-script: var(--font-ms-madi), "Ms Madi", cursive;
 }
 
 /* ─── Base ─── */
@@ -79,8 +79,16 @@ body {
 }
 
 .script {
-  font-family: var(--font-pinyon), "Pinyon Script", cursive;
+  font-family: var(--font-ms-madi), "Ms Madi", cursive;
   font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+/* Beat parent h2 tracking/weight (script fonts collide under negative spacing + faux bold) */
+.hd h2 .script,
+.cc h2 .script {
+  font-weight: 400;
+  letter-spacing: 0.04em;
 }
 
 .glass {

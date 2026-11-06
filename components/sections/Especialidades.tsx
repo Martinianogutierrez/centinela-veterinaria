@@ -16,7 +16,7 @@ export default function Especialidades({ carousel }: EspecialidadesProps) {
     <section id="especializaciones" className="especializaciones">
       <div className="hd">
         <h2 className="rv">
-          <span className="script">nuestras</span>Especializaciones
+          <span className="script">Nuestras</span>Especializaciones
         </h2>
         <p>Arrastrá →</p>
       </div>
