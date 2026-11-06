@@ -42,7 +42,7 @@ export default function Especialidades({ carousel }: EspecialidadesProps) {
               <div className="lay glass">
                 <h4>{service.title}</h4>
                 <p>{service.description}</p>
-                <u>Saber más →</u>
+                <u>Saber más</u>
               </div>
             </button>
           );
