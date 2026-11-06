@@ -22,7 +22,7 @@ export default function Hero() {
       />
       <div className="hero-t">
         <h1>Centinela</h1>
-        <span className="script">centro veterinario · Tandil</span>
+        <span className="script">Centro veterinario · Tandil</span>
       </div>
       <div className="hint" />
     </section>

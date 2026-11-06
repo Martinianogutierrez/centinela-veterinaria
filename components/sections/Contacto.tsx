@@ -16,7 +16,7 @@ export default function Contacto() {
       />
       <div className="cc glass rv">
         <h2>
-          <span className="script">visitanos</span>Te esperamos.
+          <span className="script">Visitanos</span>Te esperamos.
         </h2>
         <dl>
           <div>

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Manrope, Pinyon_Script } from "next/font/google";
+import { Manrope, Ms_Madi } from "next/font/google";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -9,10 +9,10 @@ const manrope = Manrope({
   display: "swap",
 });
 
-const pinyon = Pinyon_Script({
+const msMadi = Ms_Madi({
   subsets: ["latin"],
   weight: "400",
-  variable: "--font-pinyon",
+  variable: "--font-ms-madi",
   display: "swap",
 });
 
@@ -37,7 +37,7 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${manrope.variable} ${pinyon.variable}`}
+      className={`${manrope.variable} ${msMadi.variable}`}
       suppressHydrationWarning
     >
       <head>
